@@ -1,7 +1,8 @@
 version: '3'
 services:
     php:
-      image: composer:latest
+      build:
+        context: ./.docker/php
       command: php -S 0.0.0.0:8080
       working_dir: /app/public
       ports:

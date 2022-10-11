@@ -5,4 +5,5 @@
 /logs/*
 !/logs/README.md
 .phpunit.result.cache
-.docker
+/cache
+/.docker/mariadb/*
