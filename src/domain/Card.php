@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain;
 
-use DateTimeImmutable;
+use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -9,24 +9,29 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity, Table(name: 'card')]
-final class card{
+final class Card{
 
     #[Id, Column(type: 'integer'), GeneratedValue(strategy: 'AUTO')]
     private int $id;
 
     #[Column(type: 'integer', unique: true, nullable: false)]
-    private int $num;
+    private int $number;
 
     #[Column(type: 'string', unique: true, nullable: false)]
-    private string $email;
+    private string $type;
 
-    #[Column(name: 'registered_at', type: 'datetimetz_immutable', nullable: false)]
-    private DateTimeImmutable $registeredAt;
+    #[Column(type: 'boolean', unique: true, nullable: false)]
+    private BooleanType $retrun;
 
-    public function __construct(string $email)
+    #[Column(type: 'string', unique: true, nullable: false)]
+    private string $img;
+
+    public function __construct($num,$type,$img)
     {
-        $this->email = $email;
-        $this->registeredAt = new DateTimeImmutable('now');
+        $this->number = $num;
+        $this->type = $type;
+        $this->retrun = false;
+        $this->img = $img; 
     }
 
     public function getId(): int
@@ -34,13 +39,23 @@ final class card{
         return $this->id;
     }
 
-    public function getEmail(): string
+    public function getNumber(): int
     {
-        return $this->email;
+        return $this->number;
     }
 
-    public function getRegisteredAt(): DateTimeImmutable
+    public function getType(): string
     {
-        return $this->registeredAt;
+        return $this->type;
+    }
+
+    public function getRetrun(): BooleanType
+    {
+        return $this->retrun;
+    }
+
+    public function getImg(): string
+    {
+        return $this->img;
     }
 }
