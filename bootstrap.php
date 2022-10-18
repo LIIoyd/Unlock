@@ -8,7 +8,7 @@ use Doctrine\ORM\Tools\Setup;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use UMA\DIC\Container;
+use App\Container;
 use App\UserService;
 use App\UserController;
 use Monolog\Level;
