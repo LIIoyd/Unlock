@@ -2,6 +2,8 @@
 
 // bootstrap.php
 
+use App\CardController;
+use App\CardService;
 use Doctrine\Common\Cache\Psr6\DoctrineProvider;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
@@ -11,6 +13,7 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use App\Container;
 use App\UserService;
 use App\UserController;
+use App\draw;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -52,8 +55,8 @@ $container->set(EntityManager::class, static function (Container $c): EntityMana
 
 $container->set('view', function () {
     return Twig::create(
-        __DIR__ . '/templates',
-        ['cache' => __DIR__ . '/cache']
+        __DIR__ . '/templates'
+        //['cache' => __DIR__ . '/cache']
     );
 });
 
@@ -64,6 +67,21 @@ $container->set(UserService::class, static function (Container $c) {
 $container->set(UserController::class, static function (ContainerInterface $container) {
     $view = $container->get('view');
     return new UserController($view, $container->get(UserService::class));
+});
+
+$container->set(CardService::class, static function (Container $c) {
+    return new CardService($c->get(EntityManager::class), $c->get(LoggerInterface::class));
+});
+
+$container->set(CardController::class, static function (ContainerInterface $container) {
+    $view = $container->get('view');
+    return new CardController($view, $container->get(CardService::class));
+});
+
+
+$container->set(draw::class, static function (ContainerInterface $container) {
+    $view = $container->get('view');
+    return new draw($view);
 });
 
 return $container;

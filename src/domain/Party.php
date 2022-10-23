@@ -13,16 +13,16 @@ final class Party{
     #[Id, Column(type: 'integer'), GeneratedValue(strategy: 'AUTO')]
     private int $id;
 
-    #[Column(type: 'integer', unique: true, nullable: false)]
+    #[Column(type: 'integer', nullable: false)]
     private int $idUser;
 
-    #[Column(type: 'integer', unique: true, nullable: false)]
+    #[Column(type: 'integer', nullable: false)]
     private string $idDeck;
 
-    public function __construct($titre,$difficul)
+    public function __construct($idUser,$idDeck)
     {
-        $this->titre = $titre;
-        $this->difficul = $difficul; 
+        $this->idUser = $idUser;
+        $this->idDeck = $idDeck; 
     }
 
     public function getId(): int

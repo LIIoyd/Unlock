@@ -1,7 +1,6 @@
 <?php
 namespace App\Domain;
 
-use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -14,23 +13,23 @@ final class Card{
     #[Id, Column(type: 'integer'), GeneratedValue(strategy: 'AUTO')]
     private int $id;
 
-    #[Column(type: 'integer', unique: true, nullable: false)]
+    #[Column(type: 'integer', nullable: false)]
     private int $number;
 
-    #[Column(type: 'string', unique: true, nullable: false)]
+    #[Column(type: 'string', nullable: false)]
     private string $type;
 
-    #[Column(type: 'boolean', unique: true, nullable: false)]
-    private BooleanType $retrun;
+    #[Column(type: 'integer', nullable: false)]
+    private int $side;
 
-    #[Column(type: 'string', unique: true, nullable: false)]
+    #[Column(type: 'string', nullable: false)]
     private string $img;
 
     public function __construct($num,$type,$img)
     {
         $this->number = $num;
         $this->type = $type;
-        $this->retrun = false;
+        $this->side = 0;
         $this->img = $img; 
     }
 
@@ -49,13 +48,18 @@ final class Card{
         return $this->type;
     }
 
-    public function getRetrun(): BooleanType
+    public function getSide(): int
     {
-        return $this->retrun;
+        return $this->side;
     }
 
     public function getImg(): string
     {
         return $this->img;
+    }
+
+    public function __toString()
+    {
+        return $this->id . ' '. $this->number.' '. $this->type;
     }
 }

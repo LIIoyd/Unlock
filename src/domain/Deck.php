@@ -13,10 +13,10 @@ final class Deck{
     #[Id, Column(type: 'integer'), GeneratedValue(strategy: 'AUTO')]
     private int $id;
 
-    #[Column(type: 'string', unique: true, nullable: false)]
+    #[Column(type: 'string', nullable: false)]
     private int $titre;
 
-    #[Column(type: 'integer', unique: true, nullable: false)]
+    #[Column(type: 'integer', nullable: false)]
     private string $difficulty;
 
     public function __construct($titre,$difficul)
