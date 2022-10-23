@@ -32,8 +32,8 @@ $app->get('/', function (Request $request, Response $response, $args) {
     ]);
 });
 
-$app->post('/', \App\draw::class . ':draw');
-$app->post('/combine', \App\draw::class . ':test');
+$app->post('/', \App\draw::class . ':piocher');
+
 
 $app->get('/test/{name}', function (Request $request, Response $response, $args) {
     $view = Twig::fromRequest($request);

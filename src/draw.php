@@ -14,7 +14,7 @@ class draw
     $this->view = $view;
   }
 
-  public function test(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+  public function piocher(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
   {
     $data = json_decode($_COOKIE['card'],true);
     array_push($data,$_POST["cardId"]);
