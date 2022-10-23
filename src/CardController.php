@@ -33,8 +33,10 @@ class CardController
 
   public function piocher(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
   {
-
-    $card = $this->cardService->ModifyCard($_POST["cardId"]);
+    $card = null;
+    if(is_int($_POST["cardId"])){
+        $card = $this->cardService->ModifyCard($_POST["cardId"]);
+    }
     $this->display($response, $card);
 
     return $response;
