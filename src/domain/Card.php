@@ -58,6 +58,10 @@ final class Card{
         return $this->img;
     }
 
+    public function setSide($s){
+        $this->side = $s;
+    }
+
     public function __toString()
     {
         return $this->id . ' '. $this->number.' '. $this->type;

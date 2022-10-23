@@ -26,23 +26,9 @@ $twig = Twig::create('../templates', ['cache' => false]);
 $app->add(TwigMiddleware::create($app,$twig));
 
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'app.twig', [
-    ]);
-});
+$app->get('/', \App\CardController::class . ':test');
 
-$app->post('/', \App\draw::class . ':piocher');
-
-
-$app->get('/test/{name}', function (Request $request, Response $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'app.twig', [
-        'name' => $args['name']
-    ]);
-});
-
-$app->get('/card', \App\CardController::class . ':test');
+$app->post('/', \App\CardController::class . ':piocher');
 
 $app->get('/users', \App\UserController::class . ':test');
 

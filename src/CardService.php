@@ -16,6 +16,19 @@ final class CardService
         $this->logger = $logger;
     }
 
+    public function ModifyCard($num,$s = 1){
+        $card = $this->getCard($num);
+
+        if(! $card == null){    
+            $card->setSide($s);
+            $this->em->persist($card);
+            $this->em->flush();
+        }
+
+        return $card;
+
+    }
+
     public function getCard(int $num)
     {
         $repo = $this->em->getRepository(Card::class);
@@ -26,4 +39,14 @@ final class CardService
 
         return $card;
     }
+
+    public function getAllVisibleCard(){
+        $repo = $this->em->getRepository(Card::class);
+        $card = $repo->findBy(
+            array('side' => 1)
+        );
+        return $card;
+    
+    }
+
 }

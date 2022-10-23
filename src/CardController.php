@@ -15,13 +15,29 @@ class CardController
     $this->cardService = $cardService;
   }
 
+  public function display(ResponseInterface $response , $v = null){
+    $card = $this->cardService->getAllVisibleCard();
+    
+    return $this->view->render($response, 'app.twig', [
+        'tabCard' => $card,
+        'value' => $v,
+      ]);
+
+  }
+
   public function test(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
   {
-    $card = $this->cardService->getCard(34);
-    $tabCard = [$card];
-    return $this->view->render($response, 'app.twig', [
-      'tabCard' => $tabCard,
-    ]);
+    $this->display($response);
     return $response;
   }
+
+  public function piocher(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+  {
+
+    $card = $this->cardService->ModifyCard($_POST["cardId"]);
+    $this->display($response, $card);
+
+    return $response;
+}
+
 }
