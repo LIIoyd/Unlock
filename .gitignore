@@ -7,4 +7,5 @@
 .phpunit.result.cache
 /cache
 composer.lock
+/.docker/mariadb/*
 
