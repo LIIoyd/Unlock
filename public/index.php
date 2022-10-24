@@ -28,7 +28,11 @@ $app->add(TwigMiddleware::create($app,$twig));
 
 $app->get('/', \App\CardController::class . ':test');
 
-$app->post('/', \App\CardController::class . ':piocher');
+$app->post('/draw', \App\CardController::class . ':piocher');
+
+$app->post('/discard', \App\CardController::class . ':discard');
+
+$app->post('/combine', \App\CardController::class . ':combine');
 
 $app->get('/users', \App\UserController::class . ':test');
 

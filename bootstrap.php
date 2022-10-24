@@ -78,10 +78,4 @@ $container->set(CardController::class, static function (ContainerInterface $cont
     return new CardController($view, $container->get(CardService::class));
 });
 
-
-$container->set(draw::class, static function (ContainerInterface $container) {
-    $view = $container->get('view');
-    return new draw($view);
-});
-
 return $container;
