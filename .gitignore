@@ -6,7 +6,5 @@
 !/logs/README.md
 .phpunit.result.cache
 /cache
-/.docker/mariadb/*
 composer.lock
-composer.json
 
