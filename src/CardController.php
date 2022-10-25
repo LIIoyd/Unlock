@@ -81,5 +81,11 @@ public function combine(ServerRequestInterface $request, ResponseInterface $resp
     return $response;
   }
 
+  public function reset(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+  {
+    $game = $this->cardService->resetGame();
+    $this->display($response, null , null , null);
+    return $response;
+  }
 
 }
