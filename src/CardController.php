@@ -64,9 +64,12 @@ public function combine(ServerRequestInterface $request, ResponseInterface $resp
     $mes = 'Card combined';
     $card1 = $this->cardService->getCard($_POST["combineFirst"], 0);
     $card2 = $this->cardService->getCard($_POST["combineSecond"], 0);
-    if($card1->getSide() == 1 && $card2->getSide() == 1){
-      $card = $this->cardService->ModifyCard($_POST["combineFirst"] + $_POST["combineSecond"] , 1);
+    if ( ($card1->getType() == 'bleu' && $card2->getType() == 'rouge') || ($card1->getType() == 'rouge' && $card2->getType() == 'bleu') ) {
+        if($card1->getSide() == 1 && $card2->getSide() == 1){
+            $card = $this->cardService->ModifyCard($_POST["combineFirst"] + $_POST["combineSecond"] , 1);
+        }
     }
+
 
     if ($card == null) {
       $mes = 'Card not found';
