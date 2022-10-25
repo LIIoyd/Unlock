@@ -1,4 +1,6 @@
-# docker-compose PHP MariaDB slim4 Boilerplate
+## Unlock 
+
+# Start Docker
 
 1. start and get logs
 
@@ -19,6 +21,14 @@ composer update
 ```
 
 4. slim app runs on http://localhost:8080
+
+# Initialiser la basse de donnée
+
+1. execute the migration
+```
+./vendor/bin/doctrine-migrations migrate
+```
+
 
 
 
