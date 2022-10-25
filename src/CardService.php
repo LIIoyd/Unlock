@@ -29,11 +29,11 @@ final class CardService
 
     }
 
-    public function getCard(int $num)
+    public function getCard(string $num)
     {
         $repo = $this->em->getRepository(Card::class);
         $card = $repo->findOneBy(
-            array('number'=>$num)
+            array('card_number'=>$num)
         );
         $this->logger->info(json_encode($card));
 

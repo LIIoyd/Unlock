@@ -14,10 +14,10 @@ final class Card{
     private int $id;
 
     #[Column(type: 'string', nullable: false)]
-    private string $number;
+    private string $card_number;
 
     #[Column(type: 'string', nullable: false)]
-    private string $type;
+    private string $card_type;
 
     #[Column(type: 'integer', nullable: false)]
     private int $side;
@@ -30,8 +30,8 @@ final class Card{
 
     public function __construct($num,$type,$img,$imgDos)
     {
-        $this->number = $num;
-        $this->type = $type;
+        $this->card_number = $num;
+        $this->card_type = $type;
         $this->side = 0;
         $this->img = $img;
         $this->imgDos = $imgDos;
@@ -42,14 +42,14 @@ final class Card{
         return $this->id;
     }
 
-    public function getNumber(): int
+    public function getNumber(): string
     {
-        return $this->number;
+        return $this->card_number;
     }
 
     public function getType(): string
     {
-        return $this->type;
+        return $this->card_type;
     }
 
     public function getSide(): int
@@ -73,6 +73,6 @@ final class Card{
 
     public function __toString()
     {
-        return $this->id . ' '. $this->number.' '. $this->type;
+        return $this->id . ' '. $this->card_number.' '. $this->card_type;
     }
 }

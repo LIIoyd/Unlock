@@ -7,11 +7,17 @@
         "slim/twig-view": "^3.3",
         "monolog/monolog": "^3.2",
         "doctrine/orm": "^2.13",
-        "symfony/cache": "^6.1"
+        "symfony/cache": "^6.1",
+        "doctrine/doctrine-migrations-bundle": "^3.0",
+        "symfony/orm-pack": "^2.2",
+        "doctrine/migrations": "^3.5"
     },
     "autoload": {
         "psr-4" : {
             "App\\" : "src/"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.47"
     }
 }
