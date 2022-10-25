@@ -36,4 +36,10 @@ $app->post('/combine', \App\CardController::class . ':combine');
 
 $app->get('/users', \App\UserController::class . ':test');
 
+$app->get('/homepage', function ($request, $response, $args) {
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'homepage.twig', [
+    ]);
+});
+
 $app->run();

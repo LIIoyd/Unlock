@@ -1,0 +1,18 @@
+body {
+    color:white;
+    background-color:black;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.newgame{
+    margin-left: 7%;
+}
