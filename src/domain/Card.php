@@ -14,7 +14,7 @@ final class Card{
     private int $id;
 
     #[Column(type: 'string', nullable: false)]
-    private int $number;
+    private string $number;
 
     #[Column(type: 'string', nullable: false)]
     private string $type;
