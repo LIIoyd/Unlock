@@ -1,11 +1,11 @@
 INSERT INTO `Unlock`.card (`number`,`type`,img,side,imgDos) VALUES
-	 ('4','bleu','deck_cartes_unlock/4/4.png',1,'deck_cartes_unlock/4/4dos.png'),
+	 ('4','bleu','deck_cartes_unlock/4/4.png',0,'deck_cartes_unlock/4/4dos.png'),
 	 ('15','gris','deck_cartes_unlock/15/15.png',0,'deck_cartes_unlock/15/15dos.png'),
-	 ('21','jaune','deck_cartes_unlock/21/21.png',1,'deck_cartes_unlock/21/21dos.png'),
-	 ('22','bleu','deck_cartes_unlock/22/22.png',1,'deck_cartes_unlock/22/22dos.png'),
+	 ('21','jaune','deck_cartes_unlock/21/21.png',0,'deck_cartes_unlock/21/21dos.png'),
+	 ('22','bleu','deck_cartes_unlock/22/22.png',0,'deck_cartes_unlock/22/22dos.png'),
 	 ('32','rouge','deck_cartes_unlock/32/32.png',0,'deck_cartes_unlock/32/32dos.png'),
 	 ('35','bleu','deck_cartes_unlock/35/35.png',0,'deck_cartes_unlock/35/35dos.png'),
-	 ('42','bleu','deck_cartes_unlock/42/42.png',1,'deck_cartes_unlock/42/42dos.png'),
+	 ('42','bleu','deck_cartes_unlock/42/42.png',0,'deck_cartes_unlock/42/42dos.png'),
 	 ('47','gris','deck_cartes_unlock/47/47.png',0,'deck_cartes_unlock/47/47dos.png'),
 	 ('50','bleu','deck_cartes_unlock/50/50.png',0,'deck_cartes_unlock/50/50dos.png'),
 	 ('60','jaune','deck_cartes_unlock/60/60.png',0,'deck_cartes_unlock/60/60dos.png');
