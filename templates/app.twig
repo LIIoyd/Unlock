@@ -1,53 +1,42 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-<head>
-<link rel="stylesheet" href="css/app.css" >
-</head>
-<body>
-<div id="board">plateau</div>
-<div id="combine">combiner
+    <head>
+        <link rel="stylesheet" href="css/app.css" >
+    </head>
+    <body>
+        <div id="board">plateau</div>
 
-<form action="/combine" method="post">
- <p>First card: <input type="text" name="combineFirst" /></p>
- <p>Second card: <input type="text" name="combineSecond" /></p>
- <label>{{combineMessage}}</label>
- <p><input type="submit" /> </p>
-</form>
+        <div id="combine">combiner
+            <form action="/combine" method="post">
+                 <p>First card: <input type="text" name="combineFirst" /></p>
+                 <p>Second card: <input type="text" name="combineSecond" /></p>
+                 <label>{{combineMessage}}</label>
+                 <p><input type="submit" /> </p>
+            </form>
+        </div>
 
+        <div id="draw">
+            <form action="/draw" method="post">
+                 <p>Your card: <input type="text" name="cardId" /></p>
+                 <label>{{value}}</label>
+                 <p><input type="submit" /></p>
+            </form>
 
-</div>
+            <form action="/discard" method="post">
+                 <p>Insert the card number you want to discard: <input type="text" name="cardIdDiscard" /></p>
+                 <label>{{message}}</label>
+                 <p><input type="submit" /></p>
+            </form>
+        </div>
 
+        <div id ="yourcard">carte dispo
 
+        {% for card in tabCard %}
+            <div class = "card">{{card}} </div>
+        {% endfor %}
 
-<div id="draw">
-<form action="/draw" method="post">
- <p>Your card: <input type="text" name="cardId" /></p>
- <label>{{value}}</label>
- <p><input type="submit" /></p>
-</form>
+        </div>
 
-
-
-<form action="/discard" method="post">
- <p>Insert the card number you want to discard: <input type="text" name="cardIdDiscard" /></p>
- <label>{{message}}</label>
- <p><input type="submit" /></p>
-</form>
-
-
-</div>
-
-
-
-
-<div id ="yourcard">carte dispo
-
-{% for card in tabCard %}
-    <div class = "card">{{card}} </div>
-{% endfor %}
-
-</div>
-
-</body>
+    </body>
 </html>
