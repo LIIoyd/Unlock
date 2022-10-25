@@ -13,7 +13,7 @@ final class Card{
     #[Id, Column(type: 'integer'), GeneratedValue(strategy: 'AUTO')]
     private int $id;
 
-    #[Column(type: 'integer', nullable: false)]
+    #[Column(type: 'string', nullable: false)]
     private int $number;
 
     #[Column(type: 'string', nullable: false)]
@@ -25,12 +25,16 @@ final class Card{
     #[Column(type: 'string', nullable: false)]
     private string $img;
 
-    public function __construct($num,$type,$img)
+    #[Column(type: 'string', nullable: false)]
+    private string $imgDos;
+
+    public function __construct($num,$type,$img,$imgDos)
     {
         $this->number = $num;
         $this->type = $type;
         $this->side = 0;
-        $this->img = $img; 
+        $this->img = $img;
+        $this->imgDos = $imgDos;
     }
 
     public function getId(): int
@@ -56,6 +60,11 @@ final class Card{
     public function getImg(): string
     {
         return $this->img;
+    }
+
+    public function getImgDos(): string
+    {
+        return $this->imgDos;
     }
 
     public function setSide($s){
