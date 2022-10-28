@@ -46,9 +46,7 @@ final class Version20221025081931 extends AbstractMigration
             ['card_number' => '85','card_type' => 'vert','img' => 'deck_cartes_unlock/85/85.png','side' => 0,'imgDos' => 'deck_cartes_unlock/85/85dos.png'],
             ['card_number' => 'C','card_type' => 'gris','img' => 'deck_cartes_unlock/C/C.png','side' => 0,'imgDos' => 'deck_cartes_unlock/C/Cdos.png'],
             ['card_number' => 'K','card_type' => 'gris','img' => 'deck_cartes_unlock/K/K.png','side' => 0,'imgDos' => 'deck_cartes_unlock/K/Kdos.png'],
-            ['card_number' => 'M','card_type' => 'gris','img' => 'deck_cartes_unlock/M/M.png','side' => 0,'imgDos' => 'deck_cartes_unlock/M/Mdos.png'],
-            ['card_number' => 'chambre','card_type' => 'gris','img' => 'deck_cartes_unlock/chambre_hotel.png','side' => 1,'imgDos' => 'deck_cartes_unlock/chambre_hotel.png'],
-            ['card_number' => 'elite','card_type' => 'gris','img' => 'deck_cartes_unlock/l_elite.png','side' => 1,'imgDos' => 'deck_cartes_unlock/l_elite.png']
+            ['card_number' => 'M','card_type' => 'gris','img' => 'deck_cartes_unlock/M/M.png','side' => 0,'imgDos' => 'deck_cartes_unlock/M/Mdos.png']
         ];
 
         foreach($cards as $card){

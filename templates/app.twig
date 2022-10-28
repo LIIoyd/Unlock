@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="css/app.css" >
     </head>
     <body>
-        <div id="board">plateau</div>
+        <div id="board">plateau
+            <img src="deck_cartes_unlock/l_elite.png" alt="start" width="190">
+            <img src="deck_cartes_unlock/chambre_hotel.png" alt="hotel room" width="180">
+        </div>
 
         <div id="combine">combiner
             <form action="/combine" method="post">
@@ -33,7 +36,7 @@
         <div id ="yourcard">carte dispo
 
         {% for card in tabCard %}
-            <img class="card" src="{{card}}" alt="card" width="70" >
+            <img class="card" src="{{card}}" alt="card" width="180" >
         {% endfor %}
 
         </div>
