@@ -1,6 +1,4 @@
 body {
-    color:white;
-    background-color:black;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -9,7 +7,7 @@ body {
     height: 100vh;
     }
     
-#board { grid-area: 1 / 1 / 4 / 3; 
+#board { grid-area: 1 / 1 / 4 / 3;
 border:solid 1px white;
 }
 #yourcard { grid-area: 4 / 1 / 7 / 6;
@@ -25,8 +23,5 @@ border:solid 1px white;
 }
 
 .card{
-    color : red;
     margin: 1%;
-
-
 }
