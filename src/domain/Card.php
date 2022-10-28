@@ -73,6 +73,6 @@ final class Card{
 
     public function __toString()
     {
-        return $this->id . ' '. $this->card_number.' '. $this->card_type;
+        return $this->img;
     }
 }
