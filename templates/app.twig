@@ -6,11 +6,11 @@
     </head>
     <body>
         <div id="board">
-            <img src="deck_cartes_unlock/l_elite.png" alt="start" width="190">
-            <img src="deck_cartes_unlock/chambre_hotel.png" alt="hotel room" width="180">
+            <img src="deck_cartes_unlock/l_elite.png" alt="start" >
+            <img src="deck_cartes_unlock/chambre_hotel.png" alt="hotel room">
         </div>
 
-        <div id="combine">combiner
+        <div id="combine">COMBINE
             <form action="/combine" method="post">
                  <p>First card: <input type="text" name="combineFirst" /></p>
                  <p>Second card: <input type="text" name="combineSecond" /></p>
@@ -19,9 +19,9 @@
             </form>
         </div>
 
-        <div id="draw">
+        <div id="draw">DRAW/DISCARD
             <form action="/draw" method="post">
-                 <p>Your card: <input type="text" name="cardId" /></p>
+                 <p>Insert the card number you want to add: <input type="text" name="cardId" /></p>
                  <label>{{value}}</label>
                  <p><input type="submit" /></p>
             </form>
@@ -34,13 +34,19 @@
         </div>
 
         <div id ="yourcard">
-        Gameboard
+            GAMEBOARD
 
-        {% for card in tabCard %}
-            <img class="card" src="{{card}}" alt="card" width="180" >
-        {% endfor %}
-
+            {% for card in tabCard %}
+                <img class="card" src="{{card}}" alt="card" width="180" >
+            {% endfor %}
         </div>
+
+        <div class="leave">
+            <form action="/homepage" method="get">
+                <input type="submit" value="Leave game" />
+            </form>
+        </div>
+
 
     </body>
 </html>
