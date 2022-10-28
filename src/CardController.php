@@ -27,7 +27,7 @@ class CardController
 
   }
 
-  public function test(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+  public function game(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
   {
     $this->display($response);
     return $response;
