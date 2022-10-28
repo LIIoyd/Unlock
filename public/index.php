@@ -26,7 +26,7 @@ $twig = Twig::create('../templates', ['cache' => false]);
 $app->add(TwigMiddleware::create($app,$twig));
 
 
-$app->get('/', \App\CardController::class . ':test');
+$app->get('/game', \App\CardController::class . ':game');
 
 $app->post('/draw', \App\CardController::class . ':piocher');
 
@@ -36,9 +36,7 @@ $app->post('/combine', \App\CardController::class . ':combine');
 
 $app->post('/newgame', \App\CardController::class . ':reset');
 
-$app->get('/users', \App\UserController::class . ':test');
-
-$app->get('/homepage', function ($request, $response, $args) {
+$app->get('/', function ($request, $response, $args) {
     $view = Twig::fromRequest($request);
     return $view->render($response, 'homepage.twig', [
     ]);
