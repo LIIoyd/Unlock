@@ -40,9 +40,6 @@ body {
     grid-area: 1 / 3 / 2 / 5;
 }
 
-#regle{
-    text-align: center;
-}
 
 .card{
     margin: 1%;
