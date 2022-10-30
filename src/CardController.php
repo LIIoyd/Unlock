@@ -62,26 +62,23 @@ class CardController
 
 public function combine(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
   {
-    $mes = "";
-    if(!is_string($_POST["combineFirst"]) || !is_string($_POST["combineSecond"])){
-      $card = $this->cardService->getCard($_POST["combineFirst"] + $_POST["combineSecond"]);
-      $mes = 'Card combined';
-      if ($card == null) {
-        $mes = 'Card not found';
-      }else{
-        $card = $this->cardService->ModifyCard($_POST["combineFirst"] + $_POST["combineSecond"],1);
-        $card1 = $this->cardService->getCard($_POST["combineFirst"]);
-        $card2 = $this->cardService->getCard($_POST["combineSecond"]);
-        if($card1 !== null){
-          $card1 = $this->cardService->ModifyCard($_POST["combineFirst"], 0);
-        }
-        if($card2 !== null){
-          $card2 = $this->cardService->ModifyCard($_POST["combineSecond"], 0);
-        }
-      }  
-    }
+    $card = $this->cardService->getCard($_POST["combineFirst"] + $_POST["combineSecond"]);
+    $mes = 'Card combined';
+    if ($card == null) {
+      $mes = 'Card not found';
+    }else{
+      $card = $this->cardService->ModifyCard($_POST["combineFirst"] + $_POST["combineSecond"],1);
+      $card1 = $this->cardService->getCard($_POST["combineFirst"]);
+      $card2 = $this->cardService->getCard($_POST["combineSecond"]);
+      if($card1 !== null){
+        $card1 = $this->cardService->ModifyCard($_POST["combineFirst"], 0);
+      }
+      if($card2 !== null){
+        $card2 = $this->cardService->ModifyCard($_POST["combineSecond"], 0);
+      }
+    }   
     $this->display($response, null , null , $mes);
-      return $response;
+    return $response;
   }
 
   public function reset(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface

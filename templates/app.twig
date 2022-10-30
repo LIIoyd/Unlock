@@ -11,8 +11,8 @@
 
         <div id="combine">COMBINE
             <form action="/combine" method="post">
-                 <p>First card: <input type="text" name="combineFirst" /></p>
-                 <p>Second card: <input type="text" name="combineSecond" /></p>
+                 <p>First card: <input type="number" name="combineFirst" min="1" max="99"/></p>
+                 <p>Second card: <input type="number" name="combineSecond" min="1" max="99"/></p>
                  <label>{{combineMessage}}</label>
                  <p><input type="submit" /> </p>
             </form>

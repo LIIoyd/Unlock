@@ -20,7 +20,6 @@ docker-compose exec --workdir /app php /bin/bash
 composer update
 ```
 
-4. slim app runs on http://localhost:8080
 
 # Initialiser la basse de donnée
 
@@ -29,12 +28,6 @@ composer update
 ./vendor/bin/doctrine-migrations migrate
 ```
 
+# Lien vers l'application
 
-
-
-
-
-
-
-php vendor/bin/doctrine make:migration
-docker-compose up --build 
+- http://localhost:8080
