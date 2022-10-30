@@ -18,13 +18,13 @@ final class CardService
 
     public function ModifyCard($num,$s = 1){
         $card = $this->getCard($num);
-
+        $this->logger->info("Modification de la carte, avant modification" + json_encode($card));
         if(! $card == null){    
             $card->setSide($s);
             $this->em->persist($card);
             $this->em->flush();
         }
-
+        $this->logger->info("Modification de la carte, après modification" + json_encode($card));
         return $card;
 
     }
@@ -35,7 +35,7 @@ final class CardService
         $card = $repo->findOneBy(
             array('card_number'=>$num)
         );
-        $this->logger->info(json_encode($card));
+        $this->logger->info("carte renvoyé par getCard()" + json_encode($card));
 
         return $card;
     }
@@ -45,6 +45,7 @@ final class CardService
         $card = $repo->findBy(
             array('side' => 1)
         );
+        $this->logger->info("tableau de carte visible :" + json_encode($card));
         return $card;
     
     }
@@ -55,10 +56,12 @@ final class CardService
         foreach($tab as $card){
             if($card->getNumber() == "63" || $card->getNumber() == "15" || $card->getNumber() == "32" || $card->getNumber() == "21" || $card->getNumber() == "80"){
                 $card->setSide(1);
+                $this->logger->info("carte visible :" + json_encode($card));
                 $this->em->persist($card);
                 $this->em->flush();
             }else{
                 $card->setSide(0);
+                $this->logger->info("carte caché :" + json_encode($card));
                 $this->em->persist($card);
                 $this->em->flush();
             }
