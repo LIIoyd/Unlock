@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-    <head>
-        <link rel="stylesheet" href="css/app.css" >
-        <link rel="stylesheet" href="css/lightbox.css" >
-        <script src="script/lightbox.js" type="module" defer></script>
-    </head>
-    <body>
-        <div id="board">
-            <img class="card_tut" src="deck_cartes_unlock/chambre_hotel.png" alt="hotel room">
-        </div>
+	<head>
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/lightbox.css">
+        <link rel="icon" href="/img/cadenas-ouvert.png">
+		<title>Unlock!</title>
+		<script src="script/lightbox.js" type="module" defer></script>
+	</head>
+	<body>
+		<div id="board">
+			<img class="card_tut" src="deck_cartes_unlock/chambre_hotel.png" alt="hotel room">
+		</div>
 
-        <div id="logo">
-            <img src="/img/logo_unlock.png" alt="Unlock logo">
-        </div>
+		<div id="logo">
+			<img src="/img/logo_unlock.png" alt="Unlock logo">
+		</div>
 
-        <div id="modification">
-            <h4>COMBINE</h4>
-            <form action="/combine" method="post">
-                 <p>First card: <input type="number" name="combineFirst" min="1" max="99"/></p>
-                 <p>Second card: <input type="number" name="combineSecond" min="1" max="99"/></p>
-                 <label>{{combineMessage}}</label>
-                 <p><input type="submit" value="Combine"/></p>
-            </form>
-            <h4>DRAW</h4>
-            <form action="/draw" method="post">
-                 <p>Insert the card number you want to add: <input type="text" name="cardId" /></p>
-                 <label>{{value}}</label>
-                 <p><input type="submit" value="Draw"/></p>
-            </form>
-            <h4>DISCARD</h4>
-            <form action="/discard" method="post">
-                 <p>Insert the card number you want to discard: <input type="text" name="cardIdDiscard" /></p>
-                 <label>{{message}}</label>
-                 <p><input type="submit" value="Discard"/></p>
-            </form>
-        </div>
+		<div id="modification">
+			<h4>COMBINE</h4>
+			<form action="/combine" method="post">
+				<p>First card:
+					<input type="number" name="combineFirst" min="1" max="99"/></p>
+				<p>Second card:
+					<input type="number" name="combineSecond" min="1" max="99"/></p>
+				<label>{{combineMessage}}</label>
+				<p><input type="submit" value="Combine"/></p>
+			</form>
+			<h4>DRAW</h4>
+			<form action="/draw" method="post">
+				<p>Insert the card number you want to add:
+					<input type="text" name="cardId"/></p>
+				<label>{{value}}</label>
+				<p><input type="submit" value="Draw"/></p>
+			</form>
+			<h4>DISCARD</h4>
+			<form action="/discard" method="post">
+				<p>Insert the card number you want to discard:
+					<input type="text" name="cardIdDiscard"/></p>
+				<label>{{message}}</label>
+				<p><input type="submit" value="Discard"/></p>
+			</form>
+		</div>
 
-        <div id ="yourcard">
-            {% for card in tabCard %}
-                <img class="card" src="{{card}}" alt="card" width="180" >
-            {% endfor %}
-        </div>
+		<div id="yourcard">
+			{% for card in tabCard %}
+				<img class="card" src="{{card}}" alt="card" width="180">
+			{% endfor %}
+		</div>
 
-        <div class="leave">
-            <form action="/" method="get">
-                <input id="leave_game" type="submit" value="Leave game" />
-            </form>
-        </div>
+		<div class="leave">
+			<form action="/" method="get">
+				<input id="leave_game" type="submit" value="Leave game"/>
+			</form>
+		</div>
 
 
-    </body>
+	</body>
 </html>

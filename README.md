@@ -17,13 +17,13 @@ docker-compose exec --workdir /app php /bin/bash
 3. within the PHP container, install compose dependencies
 
 ```
-composer update
+composer install
 ```
 
 
 # Initialiser la basse de donnée
 
-1. execute the migration
+1. executer la migration dans le docker
 ```
 ./vendor/bin/doctrine-migrations migrate
 ```
