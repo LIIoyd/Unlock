@@ -11,9 +11,6 @@ use Psr\Container\ContainerInterface;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use App\Container;
-use App\UserService;
-use App\UserController;
-use App\draw;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -58,15 +55,6 @@ $container->set('view', function () {
         __DIR__ . '/templates'
         //['cache' => __DIR__ . '/cache']
     );
-});
-
-$container->set(UserService::class, static function (Container $c) {
-    return new UserService($c->get(EntityManager::class), $c->get(LoggerInterface::class));
-});
-
-$container->set(UserController::class, static function (ContainerInterface $container) {
-    $view = $container->get('view');
-    return new UserController($view, $container->get(UserService::class));
 });
 
 $container->set(CardService::class, static function (Container $c) {
