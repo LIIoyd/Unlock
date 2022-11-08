@@ -18,13 +18,13 @@ final class CardService
 
     public function ModifyCard($num,$s = 1){
         $card = $this->getCard($num);
-
+        $this->logger->info("Modification de la carte, avant modification :". $card->getNumber() . ' ' . $card->getSide());
         if(! $card == null){    
             $card->setSide($s);
             $this->em->persist($card);
             $this->em->flush();
         }
-
+        $this->logger->info("Modification de la carte, après modification :". $card->getNumber()  . ' ' . $card->getSide());
         return $card;
 
     }
@@ -35,8 +35,11 @@ final class CardService
         $card = $repo->findOneBy(
             array('card_number'=>$num)
         );
-        $this->logger->info(json_encode($card));
-
+        if($card !== null){
+            $this->logger->info("carte renvoyé par getCard() :".$card->getNumber());
+        }else{
+            $this->logger->info("carte non trouvée");
+        }
         return $card;
     }
 
@@ -45,6 +48,11 @@ final class CardService
         $card = $repo->findBy(
             array('side' => 1)
         );
+        $log = "tab [";
+        foreach ($card as $c){
+            $log .= ','. $c->getNumber();
+        }
+        $this->logger->info("tableau de carte visible :". $log . ']');
         return $card;
     
     }
@@ -55,10 +63,12 @@ final class CardService
         foreach($tab as $card){
             if($card->getNumber() == "63" || $card->getNumber() == "15" || $card->getNumber() == "32" || $card->getNumber() == "21" || $card->getNumber() == "80"){
                 $card->setSide(1);
+                $this->logger->info("carte visible : ".$card->getNumber());
                 $this->em->persist($card);
                 $this->em->flush();
             }else{
                 $card->setSide(0);
+                $this->logger->info("carte caché : ".$card->getNumber());
                 $this->em->persist($card);
                 $this->em->flush();
             }

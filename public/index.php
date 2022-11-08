@@ -28,6 +28,13 @@ $app->add(TwigMiddleware::create($app,$twig));
 
 $app->get('/game', \App\CardController::class . ':game');
 
+$app->get('/', function ($request, $response, $args) {
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'homepage.twig', [
+    ]);
+});
+
+
 $app->post('/draw', \App\CardController::class . ':piocher');
 
 $app->post('/discard', \App\CardController::class . ':discard');
@@ -35,11 +42,5 @@ $app->post('/discard', \App\CardController::class . ':discard');
 $app->post('/combine', \App\CardController::class . ':combine');
 
 $app->post('/newgame', \App\CardController::class . ':reset');
-
-$app->get('/', function ($request, $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'homepage.twig', [
-    ]);
-});
 
 $app->run();

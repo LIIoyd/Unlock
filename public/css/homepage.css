@@ -1,6 +1,9 @@
 body {
     color:white;
     background-color:black;
+    font-size: 20px;
+    font-family: Calibri;
+    font-weight: bold;
 }
 
 .logo{
@@ -15,4 +18,13 @@ body {
 
 .newgame{
     margin-left: 7%;
+}
+
+#regle{
+    text-align: center;
+}
+
+#regle>img{
+    width: 350px;
+    height: 550px;
 }
